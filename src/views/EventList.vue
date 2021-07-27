@@ -9,7 +9,7 @@
 
 <script>
 import EventCard from '@/components/EventCard.vue'
-import axios from 'axios'
+import EventService from '@/services/EventService.js'
 
 export default {
     name: 'Home',
@@ -22,8 +22,8 @@ export default {
         }
     },
     created() {
-        axios
-            .get('https://my-json-server.typicode.com/andrekolmeijer/Real-World_Vue-3/events')
+        EventService
+            .getEvents()
             .then((response) => {
                 this.events = response.data
             })
